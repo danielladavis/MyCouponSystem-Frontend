@@ -46,11 +46,11 @@
 
             <div class="login-register-wrapper" *ngIf="loginRegisterIsShown" [@slideInOut]>
 
-                <div id="log-login-wrapper" *ngIf="toggleLoginRegisterView">
+                <div class="log-login-wrapper" *ngIf="toggleLoginRegisterView">
                     <app-login (toggleLoginRegisterView)="toggleLoginRegister()"></app-login>
                 </div>
 
-                <div id="log-login-wrapper" *ngIf="!toggleLoginRegisterView">
+                <div class="log-login-wrapper" *ngIf="!toggleLoginRegisterView">
                     <app-register (toggleLoginRegisterView)="toggleLoginRegister()"></app-register>
                 </div>
 
