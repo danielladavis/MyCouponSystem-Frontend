@@ -1,0 +1,49 @@
+<div id="create-company-wrapper">
+
+    <div id="inner-wrapper">
+
+        <div class="card">
+
+            <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Create company</strong>
+            </h5>
+
+            <div class="card-body px-lg-5">
+
+                <form class="text-center" style="color: #757575;" (submit)="createCompany(createForm)"
+                    #createForm="ngForm" autocomplete="off">
+
+                    <div id="company-name-wrapper" class="md-form mt-3">
+                        <label for="materialSubscriptionFormPasswords" class="block-label">Company name</label>
+                        <input id="materialSubscriptionFormPasswords" type="text" [ngStyle]="{'box-shadow':isCompanyName == false ? '4px 4px 10px red' : 'none' }"name="companyName"
+                            #companyName="ngModel" ngModel required>
+                    </div>
+
+                    <div id="company-email-wrapper" class="md-form mt-3">
+                        <label for="materialSubscriptionFormPasswords" class="block-label">Company E-Mail</label>
+                        <input id="materialSubscriptionFormPasswords" type="email" [ngStyle]="{'box-shadow':isEmail == false ? '4px 4px 10px red' : 'none' }" name="companyEmail"
+                            #companyEmail="ngModel" ngModel required>
+                    </div>
+
+                    <div class="alert alert-danger" role="alert" *ngIf="isValid == false">
+                        Invalid input in RED!
+                    </div>
+
+                    <div class="alert alert-success" role="alert" *ngIf="isValid == true">
+                        Company created successfuly!
+                    </div>
+
+                    <div id="submit-wrapper">
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+                            type="submit" [disabled]="createForm.invalid">Create</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

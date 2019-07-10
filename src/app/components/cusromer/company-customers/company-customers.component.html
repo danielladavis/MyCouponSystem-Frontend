@@ -1,0 +1,34 @@
+<div id="company-customers-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getCompanyCustomers(getForm)" *ngIf="isAdmin == true" #getForm="ngForm" autocomplete="off">
+
+      <div class="company-id-wrapper">
+        <label class="block-label">Company ID</label>
+        <input type="number" name="companyID" #companyID="ngModel" ngModel required>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isCustomerExsist == true">
+      <table>
+        <th>Customer name</th>
+        <th>Customer username</th>
+        <tr *ngFor="let customer of customers">
+          <td>{{customer.customerName}}</td>
+          <td>{{customer.user.username}}</td>
+          <td>
+            <button (click)="removeCustomer(customer)"> Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</div>

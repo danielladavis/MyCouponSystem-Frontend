@@ -1,0 +1,51 @@
+<div id="user-by-name-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getUserByName(getForm)" #getForm="ngForm" *ngIf="isCompanyOrCustomer==false" autocomplete="off">
+
+      <div class="user-name-wrapper">
+        <label class="block-label">Username</label>
+        <input type="text" name="username" #username="ngModel" ngModel required>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isUserExsist == true">
+      <table>
+        <th>Username</th>
+        <th>Company</th>
+        <tr>
+          <td>{{user.username}}</td>
+          <td *ngIf="user.company == null">Unaffiliated</td>
+          <td *ngIf="user.company != null">
+            <button (click)="openCompanyInfo()">{{user.company.companyName}}</button>
+          </td>
+          <td>
+            <button *ngIf="isCompanyOrCustomer == false" (click)="removeUser(user)">Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div *ngIf="isCustomer == true">
+      <table>
+        <th>Customer name</th>
+        <th>Customer username</th>
+        <tr>
+          <td>{{customer.customerName}}</td>
+          <td>{{customer.user.username}}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+
+<app-company-modal [company]="user.company" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>

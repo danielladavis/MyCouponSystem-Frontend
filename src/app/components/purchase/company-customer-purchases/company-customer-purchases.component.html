@@ -1,0 +1,60 @@
+<div id="company-customer-purchases-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getCompanyCustomerPurchases(getForm)" #getForm="ngForm" autocomplete="off">
+
+      <div class="company-id-wrapper" *ngIf="isAdmin == true">
+        <label class="block-label">Company ID</label>
+        <input type="number" name="companyID" #companyID="ngModel" ngModel required>
+      </div>
+
+      <div class="user-id-wrapper" *ngIf="isAdmin == true">
+        <label class="block-label">User ID</label>
+        <input type="number" name="userID" #userID="ngModel" ngModel required>
+      </div>
+
+      <div class="user-name-wrapper" *ngIf="isCompany == true">
+        <label class="block-label">Username</label>
+        <input type="text" name="username" #username="ngModel" ngModel required>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isPurchaseExsist == true">
+      <table>
+        <th>Purchase amount</th>
+        <th>Purchase date</th>
+        <th>Purchase coupon</th>
+        <th>Purchased by (username)</th>
+        <tr *ngFor="let purchase of purchases; let i = index">
+          <td>{{purchase.purchaseAmount}}</td>
+          <td>{{purchase.purchaseDate}}</td>
+          <td>
+            <button (click)="openCouponInfo(purchase.coupon)"> {{purchase.coupon.couponTitle}}</button>
+          </td>
+          <td>
+            <button (click)="openUserInfo(purchase.user)"> {{purchase.user.username}}</button>
+          </td>
+          <td>
+            <button (click)="removePurchase(purchase,i)"> Remove</button>
+          </td>
+        </tr>
+      </table>
+      <button (click)="removeCustomerPurchases()"> Remove all customer purchases</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<app-coupon-modal [coupon]="selectedCoupon" *ngIf="showCouponInfoModal"
+  (closeModalEmmiter)="showCouponInfoModal = false"></app-coupon-modal>
+
+<app-user-modal [user]="selectedUser" *ngIf="showUserInfoModal" (closeModalEmmiter)="showUserInfoModal = false">
+</app-user-modal>

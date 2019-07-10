@@ -1,0 +1,39 @@
+<div id="all-comapny-users-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getCompanyUsers(getForm)" #getForm="ngForm" *ngIf="isAdmin == true" autocomplete="off">
+
+      <div class="company-id-wrapper">
+        <label class="block-label">Company ID</label>
+        <input type="number" name="companyID" #companyID="ngModel" ngModel required>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isCouponExsist == true">
+      <table>
+        <th>Username</th>
+        <th>Company</th>
+        <tr *ngFor="let user of users">
+          <td>{{user.username}}</td>
+          <td>
+            <button (click)="openCompanyInfo(user.company)">{{user.company.companyName}}</button>
+          </td>
+          <td>
+            <button (click)="removeUser(user)"> Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+
+<app-company-modal [company]="selectedCompany" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>

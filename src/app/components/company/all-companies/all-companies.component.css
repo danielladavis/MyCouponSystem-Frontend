@@ -1,0 +1,126 @@
+@font-face {
+    src: url(../../../../assets/fonts/Signika/Signika-Light.ttf);
+    font-family: signika;
+    src: url(../../../../assets/fonts/Signika/Signika-Bold.ttf);
+    font-family: signika-bold;
+}
+
+#all-companies-wrapper{
+    z-index: 2;
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0; 
+}
+
+#inner-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    box-sizing: border-box;
+}
+
+.card-header {
+    background-color: black;
+    color: white;
+    font-family: signika-bold;
+}
+
+.py-4 {
+    padding: 3% !important;
+}
+
+.px-lg-5 {
+    padding: 0 !important;
+    background-color: #484848;
+}
+
+input {
+    border-radius: 5px;
+    font-family: signika;
+    font-size: 1vw;
+}
+
+label {
+    color: white;
+    font-family: signika-bold;
+    font-size: 1vw;
+    margin: 3%;
+}
+
+.alert.alert-danger {
+    position: fixed;
+    height: 25%;
+    width: 40%;
+    top: 38%;
+    left: 29%;
+    font-family: signika-bold;
+    font-size: 3vw;
+    text-align: center;
+    line-height: 140px;
+}
+
+.btn-outline-info {
+    border-radius: 5px;
+    border-color: black;
+    font-size: 1.2vw;
+    font-family: signika-bold;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    width: 28%;
+    opacity: 1;
+    margin-left: 33%;
+    margin-top: 20% !important;
+    margin-bottom: 3% !important;
+}
+
+.btn-outline-info:hover {
+    color: black;
+    background-color: white;
+}
+
+.card {
+    font-family: signika;
+    margin: 2%;
+    width: 21%;
+    font-size: 1vw;
+    box-shadow: 2px 2px 4px;
+    float: left;
+}
+
+strong {
+    font-family: signika-bold;
+    font-size: 1.2vw;
+}
+
+.card-text {
+    font-size: 1vw;
+}
+
+.remove-coupon button{
+    border-radius: 5px;
+    font-size: 1.2vw;
+    font-family: signika-bold;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    width: 36%;
+    opacity: 1;
+    margin-left: 29%;
+    margin-top: 8% !important;
+    margin-bottom: 1% !important;
+}
+
+.remove-coupon button:hover{
+    background-color: black;
+    color: white
+}
+
+.card-title {
+    font-size: 2vw;
+    font-family: signika-bold;
+}

@@ -1,0 +1,5 @@
+<div class="header-wrapper">
+  <app-admin-navbar *ngIf="userType == 0"></app-admin-navbar>
+  <app-company-navbar *ngIf="userType == 1"></app-company-navbar>
+  <app-customer-navbar *ngIf="userType == 2"></app-customer-navbar>
+</div>

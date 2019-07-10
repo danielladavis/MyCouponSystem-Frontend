@@ -1,0 +1,32 @@
+.navbar {
+    background: black;
+    height: 100%;
+    justify-content: start;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+button:hover {
+    background: #484848;
+    border: #484848;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    top: 35px;
+}
+
+.dropdown-menu{
+    background: #484848;
+}
+
+.dropdown-item{
+    color: white;
+}
+
+.dropdown-item:hover{
+    background: black;
+}

@@ -1,0 +1,48 @@
+<nav class="navbar">
+
+  <!-- Profile dropdown-->
+  <div id="profile" class="dropdown">
+
+    <button class="btn btn-secondary" type="button">
+      {{username}}
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" routerLink="/home/user-by-name">View profile</a>
+      <a class="dropdown-item" (click)="logout()">Logout</a>
+    </div>
+
+  </div>
+
+  <!-- Coupon dropdown-->
+  <div id="coupon" class="dropdown">
+
+    <button class="btn btn-secondary" type="button">
+      Coupon
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" routerLink="/home/coupon-by-title">Coupon by title</a>
+      <a class="dropdown-item" routerLink="/home/coupons-by-category">Coupons by category</a>
+      <a class="dropdown-item" routerLink="/home/coupons-by-price">Coupons by price</a>
+      <a class="dropdown-item" routerLink="/home/coupons-by-date">Coupons by date</a>
+      <a class="dropdown-item" routerLink="/home/all-company-coupons">Coupons by Company</a>
+      <a class="dropdown-item" routerLink="/home/all-coupons">All coupons</a>
+    </div>
+
+  </div>
+
+  <!-- Purchase dropdown-->
+  <div id="purchase" class="dropdown">
+
+    <button class="btn btn-secondary" type="button">
+      Purchase
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" routerLink="/home/customer-purchases">My purchases</a>
+    </div>
+
+  </div>
+
+</nav>

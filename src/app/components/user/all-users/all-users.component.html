@@ -1,0 +1,25 @@
+<div id="all-users-wrapper">
+
+  <div id="inner-wrapper">
+
+    <table>
+      <th>Username</th>
+      <th>Company</th>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{user.username}}</td>
+        <td *ngIf="user.company == null">Unaffiliated</td>
+        <td *ngIf="user.company != null">
+          <button (click)="openCompanyInfo(user.company)">{{user.company.companyName}}</button>
+        </td>
+        <td>
+          <button (click)="removeUser(user,i)"> Remove</button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>
+
+<app-company-modal [company]="selectedCompany" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>

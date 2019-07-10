@@ -1,0 +1,52 @@
+<div id="purchase-by-category-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getByCategoryType(getForm)" #getForm="ngForm" autocomplete="off">
+
+      <div class="category-type-wrapper">
+        <label>Category type </label>
+        <select #categoryType="ngModel" name="categoryType" #ct ngModel required (change)="onChange(ct.value)">
+          <option value=""></option>
+          <option value="CAMPING">CAMPING</option>
+          <option value="SPORTS">SPORTS</option>
+          <option value="RESTURANS">RESTURANS</option>
+          <option value="TRAVELLING">TRAVELLING</option>
+        </select>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isPurchaseExsist == true">
+      <table>
+        <th>Purchase amount</th>
+        <th>Purchase date</th>
+        <th>Purchase coupon</th>
+        <th>Purchased by (username)</th>
+        <tr *ngFor="let purchase of purchases">
+          <td>{{purchase.purchaseAmount}}</td>
+          <td>{{purchase.purchaseDate}}</td>
+          <td>
+            <button (click)="openCouponInfo(purchase.coupon)"> {{purchase.coupon.couponTitle}}</button>
+          </td>
+          <td>
+            <button (click)="openUserInfo(purchase.user)"> {{purchase.user.username}}</button>
+          </td>
+          <td>
+            <button (click)="removePurchase(purchase)"> Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <app-coupon-modal [coupon]="selectedCoupon" *ngIf="showCouponInfoModal"
+    (closeModalEmmiter)="showCouponInfoModal = false"></app-coupon-modal>
+
+  <app-user-modal [user]="selectedUser" *ngIf="showUserInfoModal" (closeModalEmmiter)="showUserInfoModal = false">
+  </app-user-modal>

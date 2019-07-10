@@ -1,0 +1,142 @@
+@font-face {
+    src: url(../../../../assets/fonts/Kalam/Kalam-Bold.ttf);
+    font-family: kalam;
+}
+
+#register-wrapper {
+    height: 100%;
+}
+
+#inner-wrapper {
+    width: 100%;
+    height: 100%;
+    text-shadow: 0 0 3px black, 0 0 5px white;
+    font-family: kalam;
+    text-align: center;
+}
+
+.form-wrapper{
+    position: relative;
+    width: 85%;
+}
+
+.form-wrapper img{
+    width: 100%;
+}
+
+#inner-wrapper form {
+    position: absolute;
+    top: 1.5%;
+    left: 7%;
+    width: 100%;
+    height: 95%;
+}
+
+form input {
+    text-align: left;
+    border-radius: 5px;
+    background: none;
+    color: white;
+    width: 68%;
+    float: right;
+    font-size: 1.3vw;
+}
+
+form label {
+    width: 32%;
+    color: white;
+    line-height: 16px;
+    padding-right: 3%;
+    margin-bottom: 0;
+}
+
+.registerAs-wrapper {
+    position: absolute;
+    top: 11%;
+    left: 7%;
+    margin: 0 3% 0 0;
+    padding: 0;
+    color: white;
+}
+
+.registerAs-wrapper h3{
+    font-size: 1.7vw;
+}
+
+.alert.alert-danger {
+    width: 52%;
+    position: absolute;
+    top: 17%;
+    left: 17%;
+    text-shadow: none;
+    padding: 0.5%;
+    font-size: 1.1vw;
+    border-radius: 5px;
+    margin: 10px auto 0 auto;
+}
+
+.alert.alert-success {
+    width: 72%;
+    position: absolute;
+    top: 17%;
+    left: 7%;
+    text-shadow: none;
+    padding: 0.5%;
+    font-size: 1.1vw;
+    border-radius: 5px;
+    margin: 10px auto 0 auto;
+}
+
+.customer-confirm-password-wrapper label {
+    margin-top: 0;
+}
+
+.inputs-wrapper{
+    float: left;
+    padding: 34% 5% 0;
+    width: 84%;
+}
+
+.inputs{
+    padding: 0 0 8%;
+    float: left;
+    width: 100%;
+}
+
+#submit-wrapper{
+    position: absolute;
+    bottom: 2%;
+    left: 12%;
+}
+
+#submit-wrapper button {
+    border-radius: 5px;
+    font-size: 2vw;
+    font-family: kalam;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    padding: 5% 13%;
+}
+
+#submit-wrapper button:hover {
+    color: black;
+    background-color: white;
+}
+
+#login-wrapper {
+    position: absolute;
+    bottom: 5%;
+    left: 51%;
+}
+
+#login-wrapper button{
+    color: black;
+    padding: 0;
+    background: none;
+    border: none;
+}
+#login-wrapper button:hover{
+    color: white; 
+}

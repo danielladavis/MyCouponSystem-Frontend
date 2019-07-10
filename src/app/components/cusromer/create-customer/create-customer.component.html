@@ -1,0 +1,34 @@
+<div id="create-customer-wrapper">
+
+    <div id="inner-wrapper">
+
+        <form (submit)="createCustomer(createForm)" #createForm="ngForm" autocomplete="off">
+
+            <div class="customer-name-wrapper">
+                <label class="block-label">Customer name </label>
+                <input type="text" name="customerName" #customerName="ngModel" ngModel required>
+            </div>
+
+            <div class="user-name-wrapper">
+                <label class="block-label">Username </label>
+                <input type="text" name="username" #username="ngModel" ngModel required>
+            </div>
+
+            <div class="user-password-wrapper">
+                <label class="block-label">Password </label>
+                <input type="password" name="password" #password="ngModel" ngModel required>
+            </div>
+
+            <div class="user-confirm-password-wrapper">
+                <label class="block-label">Confirm password </label>
+                <input type="password" name="confirmPassword" #password="ngModel" ngModel required>
+            </div>
+
+            <div id="submit-wrapper">
+                <button type="submit" [disabled]="createForm.invalid">Create</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

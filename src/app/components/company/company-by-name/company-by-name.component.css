@@ -1,0 +1,125 @@
+@font-face {
+    src: url(../../../../assets/fonts/Signika/Signika-Light.ttf);
+    font-family: signika;
+    src: url(../../../../assets/fonts/Signika/Signika-Bold.ttf);
+    font-family: signika-bold;
+}
+
+#inner-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    right: 0;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+
+.card {
+    font-family: signika;
+    margin: auto;
+    width: 20%;
+    font-size: 1vw;
+    box-shadow: 2px 2px 4px;
+    margin-bottom: 3% !important;
+}
+
+.card-header {
+    background-color: black;
+    color: white;
+    font-family: signika-bold;
+}
+
+.card-title {
+    font-size: 2vw;
+    font-family: signika-bold;
+}
+
+.card-text {
+    font-size: 1vw;
+}
+
+.py-4 {
+    padding: 3% !important;
+}
+
+.px-lg-5 {
+    padding: 0 !important;
+    background-color: #484848;
+}
+
+strong {
+    font-family: signika-bold;
+    font-size: 1.2vw;
+}
+
+input {
+    border-radius: 5px;
+    font-family: signika;
+    font-size: 1vw;
+}
+
+label {
+    color: white;
+    font-family: signika-bold;
+    font-size: 1vw;
+    margin: 3%;
+}
+
+.alert.alert-danger {
+    position: absolute;
+    top: 55%;
+    left: 19%;
+    padding: 1% 8%;
+}
+
+.alert.alert-success {
+    position: absolute;
+    width: 82%;
+    top: 55%;
+    left: 10%;
+    padding: 1% 8%;
+}
+
+.btn-outline-info {
+    border-radius: 5px;
+    border-color: black;
+    font-size: 1.2vw;
+    font-family: signika-bold;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    width: 28%;
+    opacity: 1;
+    margin-left: 33%;
+    margin-top: 20% !important;
+    margin-bottom: 3% !important;
+}
+
+.btn-outline-info:hover {
+    color: black;
+    background-color: white;
+}
+
+.btn-outline-info:not(:disabled):not(.disabled).active, .btn-outline-info:not(:disabled):not(.disabled):active, .show>.btn-outline-info.dropdown-toggle {
+    color: #fff;
+    background-color: #bcb2b0;
+    border-color: #bcb2b0;
+}
+
+.btn-outline-info:not(:disabled):not(.disabled).active:focus, .btn-outline-info:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-info.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem #bcb2b0;
+}
+
+.remove-coupon button {
+    border-radius: 5px;
+    font-size: 1.2vw;
+    font-family: signika-bold;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    width: 36%;
+    opacity: 1;
+    margin-left: 29%;
+    margin-top: 8% !important;
+    margin-bottom: 1% !important;
+}

@@ -1,0 +1,17 @@
+<div id="all-customers-wrapper">
+
+  <div id="inner-wrapper">
+    <table>
+      <th>Customer name</th>
+      <th>Customer username</th>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.customerName}}</td>
+        <td>{{customer.user.username}}</td>
+        <td>
+          <button (click)="removeCustomer(customer)"> Remove</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,35 @@
+<div id="create-company-employee-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="createUser(createForm)" #createForm="ngForm" autocomplete="off">
+
+      <div class="company-id-wrapper">
+        <label class="block-label">Company ID </label>
+        <input type="number" name="companyID" #companyID="ngModel" ngModel required>
+      </div>
+
+      <div class="employee-username-wrapper">
+        <label class="block-label">Employee username </label>
+        <input type="text" name="username" #username="ngModel" ngModel required>
+      </div>
+
+      <div class="user-password-wrapper">
+        <label class="block-label">Password </label>
+        <input type="password" name="password" #password="ngModel" ngModel required>
+      </div>
+
+      <div class="user-confirm-password-wrapper">
+        <label class="block-label">Confirm password </label>
+        <input type="password" name="confirmPassword" #password="ngModel" ngModel required>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="createForm.invalid">Create</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

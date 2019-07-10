@@ -1,0 +1,129 @@
+@font-face{
+    src: url(../../../assets/fonts/Coda/Coda-ExtraBold.ttf);
+    font-family: Coda;
+}
+
+.welcome{
+    position: relative;
+}
+
+#log-wrapper, .row {
+    height: 100%;
+}
+
+
+#ipad-wrapper {
+    position: relative;
+    transform: rotate(-6deg);
+    margin: 1% 0 2% -3%;
+    width: 58%;
+}
+
+#ipad-wrapper img {
+    width: 100%;
+}
+.button-and-title-wrapper{
+    position: absolute;
+    top: 15%;
+    left: 14%;
+}
+
+#ipad-wrapper button {
+    font-size: 3.1vw;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    padding: 6%;
+    font-family: Coda;
+    margin: 3%;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#ipad-wrapper button:hover {
+    color: black;
+    background-color: white;
+}
+
+#ipad-wrapper h1 div {
+    text-align: center;
+    color: white;
+    font-family: Coda;
+    text-shadow: 0 0 3px black, 0 0 5px white;
+    font-size: 3vw;
+    margin: 8%;
+    padding: 0 0 0 5%;
+}
+
+#camera-wrapper {
+    transform: rotate(-18deg);
+    width: 35%;
+    /* bottom: -30%; */
+    left: 9%;
+    position: absolute;
+}
+
+#camera-wrapper img {
+    width: 100%;
+}
+
+#coffee-wrapper {
+    position: absolute;
+    top: 15%;
+    left: 62%;
+    width: 32%;
+    transform: rotate(-30deg);
+}
+
+#coffee-wrapper img {
+   width: 100%;
+}
+
+#polaroid-wrapper-1 {
+   position: absolute;
+   top: 54%;
+   left: 74%;
+   width: 15%;
+    transform: rotate(30deg);
+}
+
+#polaroid-wrapper-1 .image1 {
+    width: 100%;
+}
+
+#polaroid-wrapper-1 .image2 {
+    position: absolute;
+    top: 8%;
+    left: 15%;
+    width: 71%;
+}
+
+#polaroid-wrapper-2 {
+    position: absolute;
+    top: 69%;
+    left: 67%;
+    width: 15%;
+    transform: rotate(-30deg);
+}
+
+#polaroid-wrapper-2 .image1 {
+   width: 100%;
+}
+
+#polaroid-wrapper-2 .image2 {
+    position: absolute;
+    top: 20.5%;
+    left: 8%;
+    width: 84%;
+} 
+
+.login-register-wrapper{
+    /* height: 100%; */
+}
+
+#log-login-wrapper{
+    height: 100%;
+}
+
+.log{
+    padding: 6% 9%;
+}

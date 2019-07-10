@@ -1,0 +1,67 @@
+<div id="register-wrapper">
+
+    <div id="inner-wrapper">
+
+        <div class="form-wrapper">
+
+            <img src="../../../../assets/img/polaroidFrameLogin.png" />
+
+            <form (submit)="onRegister(registerForm)" #registerForm="ngForm" autocomplete="off">
+
+                <div class="registerAs-wrapper">
+                    <h3>Register As new customer</h3>
+                </div>
+
+                <div class="inputs-wrapper">
+                    <div class="customer-name-wrapper inputs">
+                        <label class="block-label">Full name </label>
+                        <input type="text"
+                            [ngStyle]="{'box-shadow':isCustomerName == false ? '4px 4px 10px red' : 'none' }"
+                            name="fullName" #fullName="ngModel" ngModel required>
+                    </div>
+
+                    <div class="customer-username-wrapper inputs">
+                        <label class="block-label">Username </label>
+                        <input type="text" [ngStyle]="{'box-shadow':isUsername == false ? '4px 4px 10px red' : 'none' }"
+                            name="username" #username="ngModel" ngModel required>
+                    </div>
+
+                    <div class="customer-password-wrapper inputs">
+                        <label class="block-label">Password </label>
+                        <input type="password"
+                            [ngStyle]="{'box-shadow':isPassword == false ? '4px 4px 10px red' : 'none' }"
+                            name="password" #password="ngModel" ngModel required>
+                    </div>
+
+                    <div class="customer-confirm-password-wrapper inputs">
+                        <label class="block-label">Confirm password </label>
+                        <input type="password"
+                            [ngStyle]="{'box-shadow':isPassword == false ? '4px 4px 10px red' : 'none' }"
+                            name="confirmPassword" #password="ngModel" ngModel required>
+                    </div>
+
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="isValid == false">
+                    Invalid input in RED!
+                </div>
+
+                <div class="alert alert-success" role="alert" *ngIf="isValid == true">
+                    Account created successfuly!
+                </div>
+
+                <div id="submit-wrapper">
+                    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+                </div>
+
+                <div id="login-wrapper">
+                    <button (click)="emitToggleView()">Login</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

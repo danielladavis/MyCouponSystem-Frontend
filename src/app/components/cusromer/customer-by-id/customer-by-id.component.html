@@ -1,0 +1,34 @@
+<div id="customer-by-id-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getCustomerById(getForm)" #getForm="ngForm" autocomplete="off">
+
+      <div class="customer-id-wrapper">
+        <label class="block-label">Customer ID</label>
+        <input type="number" name="customerID" #customerID="ngModel" ngModel required>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isCustomerExsist == true">
+      <table>
+        <th>Customer name</th>
+        <th>Customer username</th>
+        <tr>
+          <td>{{customer.customerName}}</td>
+          <td>{{customer.user.username}}</td>
+          <td>
+            <button (click)="removeCustomer(customer)"> Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</div>

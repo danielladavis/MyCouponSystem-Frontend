@@ -1,0 +1,32 @@
+<div id="all-incomes-wrapper">
+
+  <div id="inner-wrapper">
+
+    <div *ngIf="isIncomeExsist == true">
+      <table>
+        <th>Income operating name</th>
+        <th>Income execution date</th>
+        <th>Income description</th>
+        <th>Income price</th>
+        <th>Income Company</th>
+        <tr *ngFor="let income of incomes; let i = index">
+          <td>{{income.operatingName}}</td>
+          <td>{{income.executionDate}}</td>
+          <td>{{incomeDescription[income.incomeDescription]}}</td>
+          <td>{{income.incomePrice}}</td>
+          <td></td>
+          <td>
+            <button (click)="openCompanyInfo(income.company)">{{income.company.companyName}}</button>
+          </td>
+          <td>
+            <button (click)="removeIncome(income,i)"> Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<app-company-modal [company]="selectedCompany" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>

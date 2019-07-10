@@ -1,0 +1,13 @@
+<div class="model-backdoor"></div>
+
+<div class="modal-wrapper" ngDraggable>
+
+  <span class="x-close" (click)="closeModal()">X</span>
+
+  <h4 class="modal-title">User info</h4>
+
+  <p><b>Username:</b> {{user.username}}</p>
+  <p><b>User client type:</b> {{user.userClientType}}</p>
+  <p *ngIf="user.company != null"><b>User company:</b> {{user.company}}</p>
+
+</div>

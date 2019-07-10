@@ -1,0 +1,46 @@
+<div id="income-by-id-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getIncomeById(getForm)" #getForm="ngForm" autocomplete="off">
+
+      <div class="income-id-wrapper">
+        <label class="block-label">Income ID</label>
+        <input type="number" name="incomeID" #incomeID="ngModel" ngModel required>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isIncomeExsist == true">
+      <table>
+        <th>Income operating name</th>
+        <th>Income execution date</th>
+        <th>Income description</th>
+        <th>Income price</th>
+        <th>Income Company</th>
+        <tr>
+          <td>{{income.operatingName}}</td>
+          <td>{{income.executionDate}}</td>
+          <td>{{incomeDescription[income.incomeDescription]}}</td>
+          <td>{{income.incomePrice}}</td>
+          <td></td>
+          <td *ngIf="income.company != null">
+            <button (click)="openCompanyInfo()">{{income.company.companyName}}</button>
+          </td>
+          <td *ngIf="income.company == null">Unaffiliated</td>
+          <td>
+            <button (click)="removeIncome(income)"> Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<app-company-modal [company]="income.company" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>

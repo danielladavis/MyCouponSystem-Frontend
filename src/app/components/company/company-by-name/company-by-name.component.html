@@ -1,0 +1,77 @@
+<div id="company-by-name-wrapper">
+
+  <div id="inner-wrapper">
+
+    <!-- Card form -->
+
+    <div class="card">
+
+      <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Find company by name</strong>
+      </h5>
+
+      <div class="card-body px-lg-5">
+
+        <form class="text-center" style="color: #757575;" (submit)="getCompanyByName(getForm)" #getForm="ngForm"
+          autocomplete="off">
+
+          <div class="md-form mt-3" id="company-name-wrapper">
+            <label for="materialSubscriptionFormPasswords" class="block-label">Company name</label>
+            <input id="materialSubscriptionFormPasswords" type="text"
+              [ngStyle]="{'box-shadow':isCompanyName == false ? '4px 4px 10px red' : 'none' }" name="companyName"
+              #companyName="ngModel" ngModel required>
+          </div>
+
+          <div class="alert alert-danger" role="alert" *ngIf="isValid == false">
+            Invalid input in RED!
+          </div>
+
+          <div class="alert alert-success" role="alert" *ngIf="isRemoved == true">
+            Company removed successfuly!
+          </div>
+
+          <div id="submit-wrapper">
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit"
+              [disabled]="getForm.invalid">Find</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- Card view -->
+
+    <div class="card" *ngIf="isCompanyExsist == true">
+
+      <div class="card-body">
+
+        <h4 class="card-title"><a>Company Info</a></h4>
+
+        <div class="card-text">
+          <div class="employee-name">
+            <strong>comapny name: </strong>{{company.companyName}}
+          </div>
+
+          <div class="comapny-email">
+            <strong>Company e-mail: </strong>{{company.companyEmail}}
+          </div>
+
+        </div>
+
+        <div class="button-wrapper">
+
+          <div class="remove-coupon">
+            <button (click)="removeCompany(company)"> Remove</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

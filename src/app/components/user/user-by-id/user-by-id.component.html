@@ -1,0 +1,40 @@
+<div id="user-by-id-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getUserById(getForm)" #getForm="ngForm" autocomplete="off">
+
+      <div class="user-id-wrapper">
+        <label class="block-label">User ID</label>
+        <input type="number" name="userID" #userID="ngModel" ngModel required>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isUserExsist == true">
+      <table>
+        <th>Username</th>
+        <th>Company</th>
+        <tr>
+          <td>{{user.username}}</td>
+          <td *ngIf="user.company == null">Unaffiliated</td>
+          <td *ngIf="user.company != null">
+            <button (click)="openCompanyInfo()">{{user.company.companyName}}</button>
+          </td>
+          <td>
+            <button (click)="removeUser(user)">Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+
+<app-company-modal [company]="user.company" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>

@@ -1,0 +1,62 @@
+<div id="log-wrapper">
+
+    <div class="row">
+
+        <div class="col-6 welcome">
+
+            <div id="ipad-wrapper">
+
+                <img src="../../../assets/img/IPad.png" alt="IPad" />
+
+                <div class="button-and-title-wrapper">
+
+                    <button (click)="toggleHidden()" type="button">Welcome</button>
+
+                    <h1>
+                        <div>to</div>
+                        <div>Coupon</div>
+                        <div>World!</div>
+                    </h1>
+
+                </div>
+
+            </div>
+
+            <div id="camera-wrapper">
+                <img src="../../../assets/img/camera.png" alt="Camera" />
+            </div>
+
+            <div id="coffee-wrapper">
+                <img src="../../../assets/img/Coffee.png" alt="Coffee-mug" />
+            </div>
+
+            <div id="polaroid-wrapper-1">
+                <img class="image1" src="../../../assets/img/polaroidFrame.png" alt="Polaroid-Frame" />
+                <img class="image2" src="../../../assets/img/view.jpg" alt="view-picture" />
+            </div>
+
+            <div id="polaroid-wrapper-2">
+                <img class="image1" src="../../../assets/img/polaroidFrame.png" alt="Polaroid-Frame" />
+                <img class="image2" src="../../../assets/img/food.jpg" alt="view-picture" />
+            </div>
+
+        </div>
+
+        <div class="col-6 log">
+
+            <div class="login-register-wrapper" *ngIf="loginRegisterIsShown" [@slideInOut]>
+
+                <div id="log-login-wrapper" *ngIf="toggleLoginRegisterView">
+                    <app-login (toggleLoginRegisterView)="toggleLoginRegister()"></app-login>
+                </div>
+
+                <div id="log-login-wrapper" *ngIf="!toggleLoginRegisterView">
+                    <app-register (toggleLoginRegisterView)="toggleLoginRegister()"></app-register>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

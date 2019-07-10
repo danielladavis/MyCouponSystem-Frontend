@@ -1,0 +1,146 @@
+<div id="coupon-by-id-wrapper">
+
+  <div id="inner-wrapper">
+
+    <!-- Card form -->
+
+    <div class="card">
+
+      <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Create company</strong>
+      </h5>
+
+      <div class="card-body px-lg-5">
+
+        <form class="text-center" style="color: #757575;" (submit)="getCouponById(getForm)" #getForm="ngForm"
+          autocomplete="off">
+
+          <div class="md-form mt-3">
+            <label for="materialSubscriptionFormPasswords" class="block-label">Coupon ID</label>
+            <input id="materialSubscriptionFormPasswords" type="number" name="couponID" #couponID="ngModel" ngModel
+              required>
+          </div>
+
+          <div id="submit-wrapper">
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit"
+              [disabled]="getForm.invalid">Find</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- Card view -->
+
+    <div class="card" *ngIf="isCouponExsist == true">
+
+      <img class="card-img-top" src="https://www.sswdealersupply.com/data/default/images/catalog/500/01724-131956.jpg"
+        alt="{{coupon.image.name}}">
+
+      <div class="card-body">
+
+        <h4 class="card-title"><a>{{coupon.couponTitle}}</a></h4>
+
+        <div class="card-text">
+          <div class="coupon-start-date">
+            <strong>Coupon start date: </strong>{{coupon.startDate | date:'yyyy-MM-dd'}}
+          </div>
+          <div class="coupon-end-date">
+            <strong>Coupon end date: </strong>{{coupon.endDate  | date:'yyyy-MM-dd'}}
+          </div>
+          <div class="coupon-category">
+            <strong>Category type: </strong>{{coupon.categoryType}}
+          </div>
+          <div class="coupon-price">
+            <strong>Coupon price: </strong>{{coupon.couponPrice}} $
+          </div>
+          <div class="coupon-stock">
+            <strong>Units in stock: </strong>{{coupon.unitsInStock}}
+          </div>
+          <div class="coupon-msg">
+            <strong>Coupon message: </strong>{{coupon.couponMessage}}
+          </div>
+        </div>
+
+        <div class="button-wrapper">
+
+          <div class="company-info">
+            <button (click)="openCompanyInfo()">{{coupon.company.companyName}}</button>
+          </div>
+
+          <div class="remove-coupon">
+            <button (click)="removeCoupon(coupon)"> Remove</button>
+          </div>
+
+          <div class="update-coupon">
+            <button (click)="updateCoupon()"> Update</button>
+          </div>
+
+          <div class="purches-coupon">
+            <button [disabled]="coupon.unitsInStock == 0 || coupon.endDate.getTime() < minDate.getTime()"
+              (click)="purchesModal()"> Purches</button>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <!-- 
+    <div *ngIf="isCouponExsist == true">
+      <table>
+        <th>Coupon title</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Units in stock</th>
+        <th>Category type</th>
+        <th>Coupon message</th>
+        <th>Coupon price</th>
+        <th>Coupon image</th>
+        <th>Coupon Company</th>
+        <tr>
+          <td>{{coupon.couponTitle}}</td>
+          <td>{{coupon.startDate | date:'yyyy-MM-dd'}}</td>
+          <td>{{coupon.endDate  | date:'yyyy-MM-dd'}}</td>
+          <td>{{coupon.unitsInStock}}</td>
+          <td>{{coupon.categoryType}}</td>
+          <td>{{coupon.couponMessage}}</td>
+          <td>{{coupon.couponPrice}} $</td>
+          <td>
+            <div style="background-color:black; text-align:center; padding: 5px;">
+              <img src="data:image/*;base64,{{coupon.image.image}}">
+            </div>
+          </td>
+          <td>
+            <button (click)="openCompanyInfo()">{{coupon.company.companyName}}</button>
+          </td>
+          <td>
+            <button (click)="removeCoupon(coupon)"> Remove</button>
+          </td>
+          <td>
+            <button (click)="updateCoupon()"> Update</button>
+          </td>
+          <td>
+            <button [disabled]="coupon.unitsInStock == 0 || coupon.endDate.getTime() < minDate.getTime()"
+              (click)="purchesModal()"> Purches</button>
+          </td>
+        </tr>
+      </table>
+    </div> -->
+
+  </div>
+
+</div>
+
+<app-company-modal [company]="coupon.company" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>
+
+<app-update-coupon-modal [coupon]="selectedCoupon" *ngIf="showUpdateCouponModal"
+  (closeModalEmmiter)="showUpdateCouponModal = false"></app-update-coupon-modal>
+
+<app-purchase-modal [coupon]="selectedCoupon" *ngIf="showPurchaseCouponModal"
+  (closeModalEmmiter)="showPurchaseCouponModal = false"></app-purchase-modal>

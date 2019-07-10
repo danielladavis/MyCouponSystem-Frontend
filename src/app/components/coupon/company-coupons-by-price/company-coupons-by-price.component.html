@@ -1,0 +1,70 @@
+<div id="company-coupons-by-price-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getCompanyCouponsByMaxPrice(getForm)" #getForm="ngForm" autocomplete="off">
+
+      <div class="company-id-wrapper" *ngIf="isAdmin == true">
+        <label class="block-label">Company ID</label>
+        <input type="number" name="companyID" #companyID="ngModel" ngModel required>
+      </div>
+
+      <div class="coupon-price-wrapper">
+        <label class="block-label">Coupon price</label>
+        <input type="number" step="0.01" name="couponPrice" #couponPrice="ngModel" ngModel required />
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+
+    <table *ngIf="isCouponExsist == true">
+      <th>Coupon title</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Units in stock</th>
+      <th>Category type</th>
+      <th>Coupon message</th>
+      <th>Coupon price</th>
+      <th>Coupon image</th>
+      <th>Coupon Company</th>
+      <tr *ngFor="let coupon of coupons; let i = index">
+        <td>{{coupon.couponTitle}}</td>
+        <td>{{coupon.startDate | date:'yyyy-MM-dd'}}</td>
+        <td>{{coupon.endDate | date:'yyyy-MM-dd'}}</td>
+        <td>{{coupon.unitsInStock}}</td>
+        <td>{{coupon.categoryType}}</td>
+        <td>{{coupon.couponMessage}}</td>
+        <td>{{coupon.couponPrice}} $</td>
+        <td>{{coupon.image}}</td>
+        <td>
+          <button (click)="openCompanyInfo()">{{coupon.company.companyName}}</button>
+        </td>
+        <td>
+          <button (click)="removeCoupon(coupon)"> Remove</button>
+        </td>
+        <td>
+          <button (click)="updateCoupon(coupon,i)"> Update</button>
+        </td>
+        <td>
+          <button [disabled]="coupon.unitsInStock == 0 || coupon.endDate.getTime() < minDate.getTime()"
+            (click)="purchesModal(coupon,i)"> Purches</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+
+<app-company-modal [company]="selectedCompany" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>
+
+<app-update-coupon-modal [coupon]="selectedCoupon" *ngIf="showUpdateCouponModal"
+  (closeModalEmmiter)="showUpdateCouponModal = false"></app-update-coupon-modal>
+
+<app-purchase-modal [coupon]="selectedCoupon" *ngIf="showPurchaseCouponModal"
+  (closeModalEmmiter)="showPurchaseCouponModal = false"></app-purchase-modal>

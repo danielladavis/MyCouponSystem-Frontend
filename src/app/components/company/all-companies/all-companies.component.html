@@ -1,0 +1,40 @@
+<div id="all-companies-wrapper">
+
+  <div id="inner-wrapper">
+
+    <div class="alert alert-danger" role="alert" *ngIf="isExsist == false">
+        No companies found
+    </div>
+
+    <!-- Card view -->
+
+    <div class="card" *ngFor="let company of companies;">
+
+      <div class="card-body">
+
+        <h4 class="card-title"><a>Company Info</a></h4>
+
+        <div class="card-text">
+          <div class="employee-name">
+            <strong>comapny name: </strong>{{company.companyName}}
+          </div>
+
+          <div class="comapny-email">
+            <strong>Company e-mail: </strong>{{company.companyEmail}}
+          </div>
+
+        </div>
+
+        <div class="button-wrapper">
+
+          <div class="remove-coupon">
+            <button (click)="removeCompany(company)"> Remove</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>

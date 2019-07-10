@@ -1,0 +1,63 @@
+<nav class="navbar">
+
+  <!-- Profile dropdown-->
+  <div id="profile" class="dropdown">
+
+    <button class="btn btn-secondary" type="button">
+      {{username}}
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" routerLink="/home/user-by-name">View profile</a>
+      <a class="dropdown-item" (click)="logout()">Logout</a>
+    </div>
+
+  </div>
+
+  <!-- Coupon dropdown-->
+  <div id="coupon" class="dropdown">
+
+    <button class="btn btn-secondary" type="button">
+      Coupon
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" routerLink="/home/coupon-create">Create coupon</a>
+      <a class="dropdown-item" routerLink="/home/company-coupon-by-title">Company Coupon by title</a>
+      <a class="dropdown-item" routerLink="/home/company-coupons-by-category">Company coupons by category</a>
+      <a class="dropdown-item" routerLink="/home/company-coupons-by-price">Company coupons by price</a>
+      <a class="dropdown-item" routerLink="/home/company-coupons-by-date">Company coupons by date</a>
+      <a class="dropdown-item" routerLink="/home/all-company-coupons">All Company coupons</a>
+    </div>
+
+  </div>
+
+  <!-- Customer dropdown-->
+  <div id="customer" class="dropdown">
+
+    <button class="btn btn-secondary" type="button">
+      Customer
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" routerLink="/home/company-customer-by-name">Company customer by name</a>
+      <a class="dropdown-item" routerLink="/home/company-customers">Company customers</a>
+    </div>
+
+  </div>
+
+  <!-- Purchase dropdown-->
+  <div id="purchase" class="dropdown">
+
+    <button class="btn btn-secondary" type="button">
+      Purchase
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="dropdown-item" routerLink="/home/company-customer-purchases">Company customer purchases</a>
+      <a class="dropdown-item" routerLink="/home/company-purchases">Company purchases</a>
+    </div>
+  
+  </div>
+  
+</nav>

@@ -1,0 +1,124 @@
+@font-face {
+    src: url(../../../../assets/fonts/Kalam/Kalam-Bold.ttf);
+    font-family: kalam;
+}
+
+#login-wrapper {
+    height: 100%;
+}
+
+#inner-wrapper {
+    width: 100%;
+    height: 100%;
+    text-shadow: 0 0 3px black, 0 0 5px white;
+    font-family: kalam;
+    text-align: center;
+}
+
+.form-wrapper{
+    position: relative;
+    width: 85%;
+}
+
+.form-wrapper img{
+    width: 100%;
+}
+
+#inner-wrapper form {
+    position: absolute;
+    top: 0;
+    left: 6%;
+    width: 100%;
+    height: 100%;
+}
+
+.alert.alert-danger {
+    width: 69%;
+    position: absolute;
+    top: 11%;
+    left: 10%;
+    text-shadow: none;
+    padding: 2%;
+    font-size: 1.2vw;
+    border-radius: 5px;
+    margin: 10px auto 0 auto;
+}
+
+.username-wrapper label, .password-wrapper label {
+    font-size: 2vw;
+    color: white;
+}
+
+.username-wrapper {
+    top: 25%;
+    position: absolute;
+    left: 10%;
+}
+
+.password-wrapper {
+    position: absolute;
+    top: 49%;
+    left: 10%;
+}
+
+#inner-wrapper input {
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1.8vw;
+    background: none;
+    color: white;
+}
+
+#inner-wrapper .block-label {
+    display: block;
+}
+
+#submit-wrapper {
+    position: absolute;
+    bottom: 6%;
+    left: 21%;
+}
+
+#submit-wrapper button {
+    border-radius: 5px;
+    font-size: 2vw;
+    font-family: kalam;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    padding: 5% 13%;
+}
+
+#submit-wrapper button:hover {
+    color: black;
+    background-color: white;
+}
+
+#innerWrapper input[type="password"] {
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1.8vw;
+    margin: 37% 0% 0% 25%;
+    background: none;
+    color: white;
+    position: relative;
+}
+
+#register-wrapper {
+    bottom: 8%;
+    position: absolute;
+    left: 47%;
+}
+
+#register-wrapper button {
+    color: black;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+#register-wrapper button:hover {
+    color: white;
+}

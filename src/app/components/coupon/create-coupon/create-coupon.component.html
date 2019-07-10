@@ -1,0 +1,112 @@
+<div id="create-coupon-wrapper">
+
+  <div id="inner-wrapper">
+
+    <div class="card">
+
+      <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Create company</strong>
+      </h5>
+
+      <div class="card-body px-lg-5">
+
+        <form class="text-center" style="color: #757575;" (submit)="createCoupon(createForm)" #createForm="ngForm"
+          autocomplete="off">
+
+          <div class="left">
+            <div id="company-id-wrapper" class="md-form mt-3" *ngIf="isAdmin == true">
+              <label for="materialSubscriptionFormPasswords" class="block-label">Company ID </label>
+              <input id="materialSubscriptionFormPasswords" type="number"
+                [ngStyle]="{'box-shadow':isCompanyID == false ? '4px 4px 10px red' : 'none' }" name="companyID"
+                #companyID="ngModel" ngModel required>
+            </div>
+
+            <div id="coupon-title-wrapper" class="md-form mt-3">
+              <label for="materialSubscriptionFormPasswords" class="block-label">Coupon title </label>
+              <input id="materialSubscriptionFormPasswords" type="text"
+                [ngStyle]="{'box-shadow':isCouponTitle == false ? '4px 4px 10px red' : 'none' }" name="couponTitle"
+                #couponTitle="ngModel" ngModel required>
+            </div>
+
+            <div id="start-end-date-wrapper" class="md-form mt-3">
+              <label for="materialSubscriptionFormPasswords" class="block-label">Coupon date <span>(start to end)
+                </span></label>
+              <input id="materialSubscriptionFormPasswords" type="text" bsDaterangepicker [bsConfig]="dpConfig"
+                [minDate]="minDate" name="startEndDate" #endDate="ngModel" ngModel required>
+            </div>
+
+            <div id="units-in-stock-wrapper" class="md-form mt-3">
+              <label for="materialSubscriptionFormPasswords" class="block-label">Units in stock </label>
+              <input id="materialSubscriptionFormPasswords" type="number" name="unitsInStock" #unitsInStock="ngModel"
+                ngModel required>
+            </div>
+          </div>
+
+          <div class="middle">
+            <div id="category-type-wrapper" class="md-form mt-3">
+              <label for="materialSubscriptionFormPasswords" class="block-label">Category type </label>
+              <select #categoryType="ngModel" name="categoryType" #ct ngModel required (change)="onChange(ct.value)">
+                <option value=""></option>
+                <option value="CAMPING">CAMPING</option>
+                <option value="SPORTS">SPORTS</option>
+                <option value="RESTURANS">RESTURANS</option>
+                <option value="TRAVELLING">TRAVELLING</option>
+              </select>
+            </div>
+
+            <div id="coupon-price-wrapper" class="md-form mt-3">
+              <label for="materialSubscriptionFormPasswords" class="block-label">Coupon price <span>(in US $)</span>
+              </label>
+              <input id="materialSubscriptionFormPasswords" type="number" step="0.01" name="couponPrice"
+                #couponPrice="ngModel" ngModel required>
+            </div>
+
+            <div id="msg-wrapper" class="md-form mt-3">
+              <label for="materialSubscriptionFormPasswords" class="block-label">Coupon message <span>(300 letters
+                  max)</span> </label>
+              <textarea id="materialSubscriptionFormPasswords" type="text" name="couponMessage" maxlength="300"
+                #couponMessage="ngModel" ngModel></textarea>
+            </div>
+          </div>
+
+          <div class="right">
+
+            <div class="img-title">
+              <label for="materialSubscriptionFormPasswords" class="block-label">Coupon image </label>
+              <div class="alert alert-secondary" role="alert">
+                Please make sure image size is 200(w) x 300(h) - image in wrong size might be cut!
+              </div>
+            </div>
+
+            <div class="image-preview" *ngIf="image">
+              <img [src]="image" style="width: 80px">
+            </div>
+
+            <div id="coupon-image-wrapper" class="md-form mt-3">
+              <app-image-uploder (sendImage)="getImage($event)"></app-image-uploder>
+            </div>
+
+          </div>
+
+          <div class="alert alert-danger" role="alert" *ngIf="isValid == false">
+            Invalid input in RED!
+          </div>
+
+          <div class="alert alert-success" role="alert" *ngIf="isValid == true">
+            Coupon created successfuly!
+          </div>
+
+          <div id="submit-wrapper">
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit"
+              [disabled]="createForm.invalid">Create</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

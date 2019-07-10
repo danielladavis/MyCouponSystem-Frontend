@@ -1,0 +1,12 @@
+@font-face {
+    src: url(../../../assets/fonts/Kalam/Kalam-Bold.ttf);
+    font-family: kalam;
+}
+
+.header-wrapper {
+    height: 60px;
+    font-family: kalam;
+    font-size: 2vw;
+    z-index: 5;
+    position: relative;
+}

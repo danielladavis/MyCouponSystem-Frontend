@@ -1,0 +1,51 @@
+<div id="income-by-description-wrapper">
+
+  <div id="inner-wrapper">
+
+    <form (submit)="getIncomesByDescription(getForm)" #getForm="ngForm" autocomplete="off">
+
+      <div class="income-description-wrapper">
+        <label>Income description</label>
+        <select #categoryType="ngModel" name="incomeDescription" #d ngModel required (change)="onChange(d.value)">
+          <option value=""></option>
+          <option value="CUSTOMER_PURCHASE">Customer - Coupon purchase</option>
+          <option value="COMPANY_CREATE">Company - New coupon</option>
+          <option value="COMPANY_UPDATE">Company - Coupon update</option>
+        </select>
+      </div>
+
+      <div id="submit-wrapper">
+        <button type="submit" [disabled]="getForm.invalid">Find</button>
+      </div>
+
+    </form>
+
+    <div *ngIf="isIncomeExsist == true">
+      <table>
+        <th>Income operating name</th>
+        <th>Income execution date</th>
+        <th>Income description</th>
+        <th>Income price</th>
+        <th>Income Company</th>
+        <tr *ngFor="let income of incomes">
+          <td>{{income.operatingName}}</td>
+          <td>{{income.executionDate}}</td>
+          <td>{{incomeDescription[income.incomeDescription]}}</td>
+          <td>{{income.incomePrice}}</td>
+          <td></td>
+          <td *ngIf="income.company != null">
+            <button (click)="openCompanyInfo(income.company)">{{income.company.companyName}}</button>
+          </td>
+          <td *ngIf="income.company == null">Unaffiliated</td>
+          <td>
+            <button (click)="removeIncome(income)"> Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<app-company-modal [company]="selectedCompany" *ngIf="showCompanyInfoModal"
+  (closeModalEmmiter)="showCompanyInfoModal = false"></app-company-modal>
